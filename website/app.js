@@ -1,7 +1,7 @@
 /* Global Variables */
 const apiKey= 'f53e7e99189ec52d69a8485028cfe930';
 //need to update baseURL with zipcode
-const baseURL = 'https://www.api.openweathermap.org/data/2.5/weather?zip=';
+const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
