@@ -1,7 +1,7 @@
 /* Global Variables */
 const apiKey= 'f53e7e99189ec52d69a8485028cfe930';
 //need to update baseURL with zipcode
-const baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';
+const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
@@ -21,7 +21,7 @@ document.getElementById('generate').addEventListener('click', newEntry);
 
 function newEntry(e){
 const myZip =  document.getElementById('zip').value;
-const myFeelings = document.getElementByID('feelings').value;
+const myFeelings = document.getElementById('feelings').value;
 
 console.log (newDate);
 
@@ -30,10 +30,10 @@ getWeather(baseURL,myZip, apiKey)
 
 //add data to POST request
 
-postData('http://localhost:3000/weatherData', {temperature: data.main.temp, date: newDate, user_response: myFeelings });
+postData('http://localhost:3000/weatherData', {temperature: data.main.temp, date: newDate, user_response: myFeelings })
 
   //Update UI function
-  then (function() {
+  .then (function() {
     updateUI();
   });
 
