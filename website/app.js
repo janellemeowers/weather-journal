@@ -1,23 +1,16 @@
 /* Global Variables */
 const apiKey= 'f53e7e99189ec52d69a8485028cfe930';
 //need to update baseURL with zipcode
-const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
+const baseURL = 'https://www.api.openweathermap.org/data/2.5/weather?zip=';
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
+
 //GET request for API data
 
-const getWeather = async (baseURL, myZip, apiKey) => {
-    const response  = await fetch(baseURL + myZip + '&appid=' + apiKey);
-    try {
-        const data = await response.json();
-        return data;
-    } catch(error) {
-        console.log('error', error);
-    }
-};
+
 //Event listener for new entry
-document.getElementById('generate').addEventListener('click', newEntry);
+  document.getElementById('generate').addEventListener('click', newEntry);
 
 function newEntry(e){
 const myZip =  document.getElementById('zip').value;
@@ -42,6 +35,17 @@ postData('http://localhost:3000/weatherData', {temperature: data.main.temp, date
   });
 
 }
+
+const getWeather = async (baseURL, myZip, apiKey) => {
+    const response  = await fetch(baseURL + myZip + '&appid=' + apiKey);
+    try {
+        const data = await response.json();
+        return data;
+    } catch(error) {
+        console.log('error', error);
+    }
+};
+
 
 //POST request adds weather and user entry to app
 const postData = async (url = '', data = {}) => {
