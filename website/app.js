@@ -30,7 +30,7 @@ getWeather(baseURL,myZip, apiKey)
 
 //add data to POST request
 
-postData('http://localhost:3000/weatherData', {temperature: data.main.temp, date: newDate, user_response: myFeelings })
+postData('http://localhost:3000/weatherData', {temperature: data.main.temp, date: newDate, userResponse: myFeelings })
 
   //Update UI function
   .then (function() {
@@ -70,7 +70,7 @@ const updateUI = async(url='') => {
         const allData = await request.json();
         document.getElementById('date').innerHTML = allData.date;
         document.getElementById('temp').innerHTML = allData.temperature;
-        document.getElementById('content').innerHTML = allData.user_response;
+        document.getElementById('content').innerHTML = allData.userResponse;
     } catch(error) {
         console.log('error', error);
     }
