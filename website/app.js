@@ -7,7 +7,15 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 
 //GET request for API data
-
+const getWeather = async (baseURL, myZip, apiKey) => {
+    const response  = await fetch(baseURL + myZip + '&appid=' + apiKey);
+    try {
+        const data = await response.json();
+        return data;
+    } catch(error) {
+        console.log('error', error);
+    }
+};
 
 //Event listener for new entry
   document.getElementById('generate').addEventListener('click', newEntry);
@@ -18,7 +26,7 @@ const myFeelings = document.getElementById('feelings').value;
 
 console.log (newDate);
 
-getWeather(baseURL,myZip, apiKey)
+getWeather(baseURL, myZip, apiKey)
 .then(function (data) {
 
 //add data to POST request
@@ -36,15 +44,7 @@ postData('http://localhost:3000/weatherData', {temperature: data.main.temp, date
 
 }
 
-const getWeather = async (baseURL, myZip, apiKey) => {
-    const response  = await fetch(baseURL + myZip + '&appid=' + apiKey);
-    try {
-        const data = await response.json();
-        return data;
-    } catch(error) {
-        console.log('error', error);
-    }
-};
+
 
 
 //POST request adds weather and user entry to app
