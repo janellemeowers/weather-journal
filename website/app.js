@@ -31,11 +31,11 @@ getWeather(baseURL, myZip, apiKey)
 
 //add data to POST request
 
-postData('http://localhost:3000/weatherData', {temperature: data.main.temp, date: newDate, userResponse: myFeelings })
+postData('http://localhost:3000/add', {temperature: data.main.temp, date: newDate, userResponse: myFeelings })
 
   //Update UI function
   .then (function() {
-    updateUI();
+    updateUI('/all');
   });
 
 
