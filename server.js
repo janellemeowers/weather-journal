@@ -29,16 +29,15 @@ app.listen(3000, function () {
 //GET route returns projectData
 
 app.get('/all', function (req, res) {
-  response.send(projectData);
+  res.send(projectData);
 });
 
 //POST route adds incoming projectData
 
 app.post('/add', function (req, res) {
-    addEntry = {
-        temperature: req.body.temperature,
-        date: req.body.date,
-        userResponse: req.body.userResponse
-    };
-    projectData.push(addEntry);
+
+        projectData.temperature = req.body.temperature,
+        projectData.date = req.body.date,
+        projectData.userResponse = req.body.userresponse;
+
  });
