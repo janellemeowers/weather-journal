@@ -38,6 +38,6 @@ app.post('/add', function (req, res) {
 
         projectData.temperature = req.body.temperature,
         projectData.date = req.body.date,
-        projectData.userResponse = req.body.userresponse;
-
+        projectData.userResponse = req.body.userResponse;
+   res.end();
  });
